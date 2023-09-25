@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <a asp-controller="Vehicle" asp-action="CreateVehicle">Register a Vehicle</a>
+    <br />
+    <a asp-controller="Contractor" asp-action="CreateContractor">Register a Contractor</a>
+    <br />
+    <a asp-controller="ContractorVehicles" asp-action="ViewContractorVehicles">View Contractor Vehicles</a>
+    <br />
+    <a asp-controller="Summary" asp-action="ViewSummary">View Summary</a>
+    <br />
+    <a asp-controller="Vehicle" asp-action="EditDelete">Edit or Delete Vehicles</a>
+
+
+</div>

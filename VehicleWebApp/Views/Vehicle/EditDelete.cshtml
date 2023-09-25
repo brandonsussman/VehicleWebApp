@@ -1,0 +1,36 @@
+﻿@model List<VehicleWebApp.Models.Vehicle>
+
+@{
+    ViewData["Title"] = "Edit or Delete Vehicles";
+}
+
+<h1>Edit or Delete Vehicles</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Registration Number</th>
+            <th>Type</th>
+            <th>Model</th>
+            <th>Weight</th>
+            <th>Contractor ID</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var vehicle in Model)
+        {
+            <tr>
+                <td>@vehicle.RegistrationNumber</td>
+                <td>@vehicle.Type</td>
+                <td>@vehicle.Model</td>
+                <td>@vehicle.Weight</td>
+                <td>@vehicle.ContractorID</td>
+                <td>
+                    <a asp-action="EditDelete" asp-route-registrationNumber="@vehicle.RegistrationNumber">Edit</a> |
+                    <a asp-action="DeleteConfirmed" asp-route-registrationNumber="@vehicle.RegistrationNumber">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

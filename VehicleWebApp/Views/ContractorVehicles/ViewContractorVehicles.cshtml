@@ -1,0 +1,44 @@
+﻿@model VehicleWebApp.Models.ContractorVehicles
+
+<h1>View Contractor Vehicles</h1>
+
+@using (Html.BeginForm("ViewContractorVehicles", "ContractorVehicles", FormMethod.Post))
+{
+    <div class="form-group">
+        <label for="selectedContractorId">Select a Contractor:</label>
+        <select class="form-control" id="selectedContractorId" name="selectedContractorId">
+            <option value="">-- Select Contractor --</option>
+            @foreach (var contractor in Model.ContractorList)
+            {
+                <option value="@contractor.ContractorId">@contractor.Name</option>
+            }
+        </select>
+        <button type="submit" class="btn btn-primary">View Vehicles</button>
+    </div>
+}
+
+@if (!string.IsNullOrEmpty(Model.SelectedContractorId))
+{
+    <h2>Contractor: @Model.SelectedContractorName</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Registration Number</th>
+                <th>Type</th>
+                <th>Model</th>
+                <th>Weight</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var vehicle in Model.VehicleList)
+            {
+                <tr>
+                    <td>@vehicle.RegistrationNumber</td>
+                    <td>@vehicle.Type</td>
+                    <td>@vehicle.Model</td>
+                    <td>@vehicle.Weight</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

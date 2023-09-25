@@ -1,0 +1,25 @@
+﻿@model List<VehicleWebApp.Models.Summary>
+
+<h1>Contractor Summary</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Contractor ID</th>
+            <th>Contractor Name</th>
+            <th>Number of Vehicles</th>
+            <th>Total Weight (Tons)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ContractorId</td>
+                <td>@item.ContractorName</td>
+                <td>@item.NumberOfVehicles</td>
+                <td>@item.TotalWeight</td>
+            </tr>
+        }
+    </tbody>
+</table>
